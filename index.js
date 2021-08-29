@@ -2,15 +2,14 @@
 // Import and require mysql2
 const mysql = require('mysql2');
 const inquirer = require('inquirer');
+const cTable = require('console.table');
 
 // Connect to database
 const db = mysql.createConnection(
   {
     host: process.env.DB_HOST,
-    // MySQL username,
-    user: 'root',
-    // {TODO: Add your MySQL password}
-    password: 'rootroot',
+    user: process.env.DB_USER ||'root',
+    password: process.env.DB_PASSWD || 'rootroot',
     database: 'employee_db'
   },
   init()
